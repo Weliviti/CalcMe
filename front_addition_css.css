@@ -1,0 +1,34 @@
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+    }
+    .box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      width: 360px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .box:hover { transform: translateY(-5px); }
+    h2 { margin-bottom: 20px; font-size: 26px; letter-spacing: 1px; }
+    .numbers { font-size: 28px; margin-bottom: 20px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 15px; display: flex; justify-content: center; gap: 10px; }
+    input { padding: 10px; width: 80%; border-radius: 10px; border: none; margin-bottom: 15px; font-size: 16px; outline: none; }
+    button { padding: 10px 20px; border-radius: 12px; border: none; cursor: pointer; font-weight: 600; margin: 5px; transition: background 0.3s, transform 0.2s; }
+    button:hover { transform: translateY(-2px); }
+    button.submit { background: #f6d365; color: #333; }
+    button.new { background: #fda085; color: #333; }
+    #result { margin-top: 15px; font-size: 18px; padding: 10px; border-radius: 12px; min-height: 24px; }
+    .correct { background: rgba(0, 255, 123, 0.2); color: #0f0; }
+    .wrong { background: rgba(255, 0, 0, 0.2); color: #ff5555; }
+    p.time { margin-top: 12px; font-size: 16px; color: #eee; }
+    p.round { margin-top: 10px; font-size: 16px; color: #fff; }

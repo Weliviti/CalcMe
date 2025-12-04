@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Front Addition</title>
+    </head>
+    <body>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Guess the Sum - 10 Rounds</title>
+        <div class="box">
+            <h2>Guess the Sum</h2>
+            <div class="numbers">
+                <span id="numA">-</span> + <span id="numB">-</span>
+            </div>
+            <input id="guess" type="number" placeholder="Enter your answer" />
+            <div>
+                <button class="submit" onclick="submitGuess()">Submit</button>
+                <button class="new" onclick="nextRound()">Next Round</button>
+            </div>
+            <p id="result"></p>
+            <p class="time">Time: <span id="time">0.00</span> sec</p>
+            <p class="round">Round: <span id="currentRound">1</span> / 10</p>
+        </div>
+    </body>
+</html>
