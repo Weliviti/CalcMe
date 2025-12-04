@@ -1,6 +1,6 @@
 // server.js
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'YOUR_PASSWORD', // replace with your MySQL password
+    password: 'kaito1412', // replace with your MySQL password
     database: 'guess_game'
 });
 

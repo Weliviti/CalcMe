@@ -5,18 +5,22 @@ const totalRounds = 10;
 let totalCorrect = 0;
 let totalTime = 0;
 
+// Generate a new round
 function newRound() {
   numA = Math.floor(Math.random() * 50);
   numB = Math.floor(Math.random() * 50);
   answer = numA + numB;
+
   document.getElementById("numA").textContent = numA;
   document.getElementById("numB").textContent = numB;
   document.getElementById("guess").value = "";
   document.getElementById("result").textContent = "";
   document.getElementById("time").textContent = "0.00";
+
   startTime = Date.now();
 }
 
+// Check the user's guess
 function submitGuess() {
   const guess = Number(document.getElementById("guess").value);
   if (!guess && guess !== 0) return;
@@ -38,6 +42,7 @@ function submitGuess() {
   }
 }
 
+// Move to next round or finish game
 function nextRound() {
   if (currentRound < totalRounds) {
     currentRound++;
@@ -45,6 +50,7 @@ function nextRound() {
     newRound();
   } else {
     alert(`Game over!\nTotal Correct: ${totalCorrect} / ${totalRounds}\nTotal Time: ${totalTime.toFixed(2)} sec`);
+    sendToDB();  // <-- send results to MySQL
     currentRound = 1;
     totalCorrect = 0;
     totalTime = 0;
@@ -53,4 +59,22 @@ function nextRound() {
   }
 }
 
+// Send results to Node.js server / MySQL
+function sendToDB() {
+  fetch('http://localhost:3000/save', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      player: "Kaito",       // Change this if you want dynamic player name
+      round: totalRounds,
+      correct: totalCorrect,
+      totalTime: totalTime
+    })
+  })
+  .then(res => res.json())
+  .then(data => console.log("Saved to DB:", data))
+  .catch(err => console.error("Error saving to DB:", err));
+}
+
+// Start the first round automatically
 newRound();
